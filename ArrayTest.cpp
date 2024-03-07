@@ -3,7 +3,13 @@
 #include <iostream>
 using namespace std;
 
-ArrayTest::ArrayTest() {
+ArrayTest::ArrayTest(int longSize, int shortSize) {
+
+    this->longSize = longSize;
+    this->shortSize = shortSize;
+    this->longArray = new int[longSize];
+    this->shortArray = new int[shortSize];
+
     srand(time(NULL));
     this->generateLongArray();
     this->generateShortArray();

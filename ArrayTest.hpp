@@ -7,15 +7,17 @@
 
 class ArrayTest {
 public:
-    ArrayTest();
+    ArrayTest(int longSize, int shortSize);
     ~ArrayTest();
     int* getLongArray();
     int* getShortArray();
 
     
 private:
-    int shortArray[10];
-    int longArray[999999];
+    int longSize;
+    int shortSize;
+    int* shortArray;
+    int* longArray;
     void generateLongArray();
     void generateShortArray();
 };
