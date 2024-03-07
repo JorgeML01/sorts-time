@@ -15,7 +15,7 @@ void SelectionSort::sort(int arr[], int size) {
 
     // Imprimir el array ordenado
     for (int i = 0; i < size; i++) {
-        std::cout << " " << arr[i];
+        //std::cout << " " << arr[i];
     }
     std::cout << "\n";
 }

@@ -16,11 +16,11 @@ ArrayTest::ArrayTest(int longSize, int shortSize) {
 
     cout << "\n\n";
     for (int i = 0; i < 10; i++) {
-        cout << " " << this->shortArray[i];
+        //cout << " " << this->shortArray[i];
     }
 
-    cout << "\n\nsize: " << sizeof(this->shortArray) / sizeof(this->shortArray[0]);
-    cout << "\n\n";
+    //cout << "\n\nsize: " << sizeof(this->shortArray) / sizeof(this->shortArray[0]);
+    //cout << "\n\n";
 }
 
 ArrayTest::~ArrayTest() {
@@ -38,7 +38,7 @@ int* ArrayTest::getShortArray() {
 
 void ArrayTest::generateLongArray() {
 
-    for (int i = 0; i < 100000; i++) {
+    for (int i = 0; i < this->longSize; i++) {
 	    int random = rand() % 9999999;        
         this->longArray[i] = random;
     }
@@ -46,7 +46,7 @@ void ArrayTest::generateLongArray() {
 }
 
 void ArrayTest::generateShortArray() {
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < this->shortSize; i++) {
         int random = rand() % 9999999;      
         this->shortArray[i] = random;
     }
