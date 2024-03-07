@@ -7,19 +7,15 @@
 
 class ArrayTest {
 public:
-    ArrayTest(int longSize, int shortSize);
+    ArrayTest(int size);
     ~ArrayTest();
-    int* getLongArray();
-    int* getShortArray();
+    int* getArray();
 
     
 private:
-    int longSize;
-    int shortSize;
-    int* shortArray;
-    int* longArray;
-    void generateLongArray();
-    void generateShortArray();
+    int size;
+    int* arr;
+    void generateArray();
 };
 
 #endif

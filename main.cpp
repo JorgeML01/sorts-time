@@ -16,13 +16,26 @@ using namespace std;
 
 int main() {
 
-    int longArraySize = 100000; // Tengo que ir a corregir algo allá en ArrayTest porque con menos me da segmentation fault.
-    int shortArraySize = 10;
+    int size = 0;
+    string sortSelected;
+
+    cout << "Array size: ";
+    cin >> size;
+    cout << "\n--- SORT LIST ---\n";
+    cout << "1. Bubble Sort\n";
+    cout << "5. Selection Sort\n";
+    cout << "6. Insertion Sort\n";
+    cout << "2. Heap Sort\n";
+    cout << "4. Quick Sort\n";
+    cout << "3. Merge Sort\n";
+    cout << "Select sort: ";
+    cin >> sortSelected;
+
+
     Functions* objFunctions = new Functions();
 
-    ArrayTest* arrayObj = new ArrayTest(longArraySize, shortArraySize);
-    int* longArray = arrayObj->getLongArray();
-    int* shortArray = arrayObj->getShortArray();
+    ArrayTest* arrayObj = new ArrayTest(size);
+    int* arr = arrayObj->getArray();
 
     // Objs. Sorts.
     BubbleSort* objBubble = new BubbleSort();
@@ -32,57 +45,52 @@ int main() {
     SelectionSort* objSelection = new SelectionSort();
     InsertionSort* objInsertion = new InsertionSort();
 
-    //objBubble->sort(longArray, longArraySize);       // O(n^2)
-    //objSelection->sort(longArray, longArraySize);    // O(n^2)
-    //objQuick->sort(longArray, longArraySize);        // O(n^2)
-    //objMerge->sort(longArray, longArraySize);        // O(nlogn)
-    //objHeap->sort(longArray, longArraySize);         // O(nlogn)
-    //objInsertion->sort(longArray, longArraySize);    // O(nlogn)
+    if (sortSelected == "1") {
+        // Bubble sort
+        auto startBubble = std::chrono::high_resolution_clock::now();
+        objBubble->sort(arr, size);
+        auto stopBubble = std::chrono::high_resolution_clock::now();
+        auto durationBubble = std::chrono::duration_cast<std::chrono::microseconds>(stopBubble - startBubble);
+        std::cout << "\n\nBubble Sort Time: " << durationBubble.count() / 1000000.0 << " seconds\n";
+    } else if (sortSelected == "2"){
+        // Selection sort
+        auto startSelection = std::chrono::high_resolution_clock::now();
+        objSelection->sort(arr, size);
+        auto stopSelection = std::chrono::high_resolution_clock::now();
+        auto durationSelection = std::chrono::duration_cast<std::chrono::microseconds>(stopSelection - startSelection);
+        std::cout << "\n\nSelection Sort Time: " << durationSelection.count() / 1000000.0 << " seconds\n";
+    } else if (sortSelected == "3") {
+        // Insertion sort
+        auto startInsertion = std::chrono::high_resolution_clock::now();
+        objInsertion->sort(arr, size);
+        auto stopInsertion = std::chrono::high_resolution_clock::now();
+        auto durationInsertion = std::chrono::duration_cast<std::chrono::microseconds>(stopInsertion - startInsertion);
+        std::cout << "\n\nInsertion Sort Time: " << durationInsertion.count() / 1000000.0 << " seconds\n";
 
-
-    // Bubble sort
-    auto startBubble = std::chrono::high_resolution_clock::now();
-    objBubble->sort(longArray, longArraySize);
-    auto stopBubble = std::chrono::high_resolution_clock::now();
-    auto durationBubble = std::chrono::duration_cast<std::chrono::microseconds>(stopBubble - startBubble);
-
-    // Selection sort
-    auto startSelection = std::chrono::high_resolution_clock::now();
-    objSelection->sort(longArray, longArraySize);
-    auto stopSelection = std::chrono::high_resolution_clock::now();
-    auto durationSelection = std::chrono::duration_cast<std::chrono::microseconds>(stopSelection - startSelection);
-
-    // Insertion sort
-    auto startInsertion = std::chrono::high_resolution_clock::now();
-    objInsertion->sort(longArray, longArraySize);
-    auto stopInsertion = std::chrono::high_resolution_clock::now();
-    auto durationInsertion = std::chrono::duration_cast<std::chrono::microseconds>(stopInsertion - startInsertion);
-
-    // Heap sort --> ME QUEDÉ AQUÍ.
-    auto startHeap = std::chrono::high_resolution_clock::now();
-    objHeap->sort(longArray, longArraySize);
-    auto stopHeap = std::chrono::high_resolution_clock::now();
-    auto durationHeap = std::chrono::duration_cast<std::chrono::microseconds>(stopHeap - startHeap);
-
-    // Merge sort
-    auto startMerge = std::chrono::high_resolution_clock::now();
-    objMerge->sort(longArray, longArraySize);
-    auto stopMerge = std::chrono::high_resolution_clock::now();
-    auto durationMerge = std::chrono::duration_cast<std::chrono::microseconds>(stopMerge - startMerge);
-
-    // Quick sort
-    auto startQuick = std::chrono::high_resolution_clock::now();
-    objBubble->sort(longArray, longArraySize);
-    auto stopQuick = std::chrono::high_resolution_clock::now();
-    auto durationQuick = std::chrono::duration_cast<std::chrono::microseconds>(stopQuick - startQuick);
-
-
-    std::cout << "\n\nBubble Sort Time: " << durationBubble.count() / 1000000.0 << " seconds\n";
-    std::cout << "Quick Sort Time: " << durationQuick.count() / 1000000.0 << " seconds\n";
-    std::cout << "Selection Sort Time: " << durationSelection.count() / 1000000.0 << " seconds\n";
-    std::cout << "Merge Sort Time: " << durationMerge.count() / 1000000.0 << " seconds\n";
-    std::cout << "Insertion Sort Time: " << durationInsertion.count() / 1000000.0 << " seconds\n";
-    std::cout << "Heap Sort Time: " << durationHeap.count() / 1000000.0 << " seconds\n\n";
+    } else if (sortSelected == "4") {
+        // Heap sort
+        auto startHeap = std::chrono::high_resolution_clock::now();
+        objHeap->sort(arr, size);
+        auto stopHeap = std::chrono::high_resolution_clock::now();
+        auto durationHeap = std::chrono::duration_cast<std::chrono::microseconds>(stopHeap - startHeap);
+        std::cout << "\n\nHeap Sort Time: " << durationHeap.count() / 1000000.0 << " seconds\n\n";
+    } else if (sortSelected == "5") {
+        // Quick sort
+        auto startQuick = std::chrono::high_resolution_clock::now();
+        objBubble->sort(arr, size);
+        auto stopQuick = std::chrono::high_resolution_clock::now();
+        auto durationQuick = std::chrono::duration_cast<std::chrono::microseconds>(stopQuick - startQuick);
+        std::cout << "\n\nQuick Sort Time: " << durationQuick.count() / 1000000.0 << " seconds\n";
+    } else if (sortSelected == "6") {
+        // Merge sort
+        auto startMerge = std::chrono::high_resolution_clock::now();
+        objMerge->sort(arr, size);
+        auto stopMerge = std::chrono::high_resolution_clock::now();
+        auto durationMerge = std::chrono::duration_cast<std::chrono::microseconds>(stopMerge - startMerge);
+        std::cout << "\n\nMerge Sort Time: " << durationMerge.count() / 1000000.0 << " seconds\n";
+    } else {
+        cout << "Opción incorrecta\n";
+    }
 
 
     delete arrayObj;

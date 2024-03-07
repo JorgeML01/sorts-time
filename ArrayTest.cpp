@@ -3,24 +3,18 @@
 #include <iostream>
 using namespace std;
 
-ArrayTest::ArrayTest(int longSize, int shortSize) {
+ArrayTest::ArrayTest(int size) {
 
-    this->longSize = longSize;
-    this->shortSize = shortSize;
-    this->longArray = new int[longSize];
-    this->shortArray = new int[shortSize];
+    this->size = size;
+    this->arr = new int[size];
 
     srand(time(NULL));
-    this->generateLongArray();
-    this->generateShortArray();
+    this->generateArray();
 
     cout << "\n\n";
-    for (int i = 0; i < 10; i++) {
-        //cout << " " << this->shortArray[i];
+    for (int i = 0; i < size; i++) {
+        //cout << " " << this->arr[i];
     }
-
-    //cout << "\n\nsize: " << sizeof(this->shortArray) / sizeof(this->shortArray[0]);
-    //cout << "\n\n";
 }
 
 ArrayTest::~ArrayTest() {
@@ -28,26 +22,14 @@ ArrayTest::~ArrayTest() {
 }
 
 // Implementación de la función getArray.
-int* ArrayTest::getLongArray() {
-    return longArray;
+int* ArrayTest::getArray() {
+    return this->arr;
 }
 
-int* ArrayTest::getShortArray() {
-    return shortArray;
-}
-
-void ArrayTest::generateLongArray() {
-
-    for (int i = 0; i < this->longSize; i++) {
+void ArrayTest::generateArray() {
+    for (int i = 0; i < this->size; i++) {
 	    int random = rand() % 9999999;        
-        this->longArray[i] = random;
-    }
-
-}
-
-void ArrayTest::generateShortArray() {
-    for (int i = 0; i < this->shortSize; i++) {
-        int random = rand() % 9999999;      
-        this->shortArray[i] = random;
+        this->arr[i] = random;
     }
 }
+
