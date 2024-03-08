@@ -21,16 +21,17 @@ int main() {
 
     cout << "Array size: ";
     cin >> size;
+    // size = 50000;
     cout << "\n--- SORT LIST ---\n";
     cout << "1. Bubble Sort\n";
-    cout << "5. Selection Sort\n";
-    cout << "6. Insertion Sort\n";
-    cout << "2. Heap Sort\n";
-    cout << "4. Quick Sort\n";
-    cout << "3. Merge Sort\n";
+    cout << "2. Selection Sort\n";
+    cout << "3. Insertion Sort\n";
+    cout << "4. Heap Sort\n";
+    cout << "5. Quick Sort\n";
+    cout << "6. Merge Sort\n";
     cout << "Select sort: ";
     cin >> sortSelected;
-
+    // sortSelected = "6";
 
     Functions* objFunctions = new Functions();
 
@@ -66,7 +67,6 @@ int main() {
         auto stopInsertion = std::chrono::high_resolution_clock::now();
         auto durationInsertion = std::chrono::duration_cast<std::chrono::microseconds>(stopInsertion - startInsertion);
         std::cout << "\n\nInsertion Sort Time: " << durationInsertion.count() / 1000000.0 << " seconds\n";
-
     } else if (sortSelected == "4") {
         // Heap sort
         auto startHeap = std::chrono::high_resolution_clock::now();

@@ -12,12 +12,6 @@ void SelectionSort::sort(int arr[], int size) {
         // Intercambiar el mínimo elemento con el primer elemento no ordenado
         swap(arr[i], arr[minIndex]);
     }
-
-    // Imprimir el array ordenado
-    for (int i = 0; i < size; i++) {
-        //std::cout << " " << arr[i];
-    }
-    std::cout << "\n";
 }
 
 int SelectionSort::findMinIndex(int arr[], int start, int end) {

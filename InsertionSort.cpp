@@ -6,12 +6,6 @@ InsertionSort::InsertionSort() {
 
 void InsertionSort::sort(int arr[], int size) {
     insertionSort(arr, size);
-
-    // Imprimir el array ordenado
-    for (int i = 0; i < size; i++) {
-        //std::cout << " " << arr[i];
-    }
-    std::cout << "\n";
 }
 
 void InsertionSort::insertionSort(int arr[], int size) {

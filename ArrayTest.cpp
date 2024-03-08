@@ -4,17 +4,10 @@
 using namespace std;
 
 ArrayTest::ArrayTest(int size) {
-
     this->size = size;
     this->arr = new int[size];
-
     srand(time(NULL));
     this->generateArray();
-
-    cout << "\n\n";
-    for (int i = 0; i < size; i++) {
-        //cout << " " << this->arr[i];
-    }
 }
 
 ArrayTest::~ArrayTest() {

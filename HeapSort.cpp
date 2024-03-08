@@ -17,11 +17,6 @@ void HeapSort::sort(int arr[], int size) {
         heapify(arr, i, 0);
     }
 
-    // Imprimir el array ordenado
-    for (int i = 0; i < size; i++) {
-        //std::cout << " " << arr[i];
-    }
-    std::cout << "\n";
 }
 
 void HeapSort::buildHeap(int arr[], int size) {

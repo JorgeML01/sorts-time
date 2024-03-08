@@ -6,12 +6,6 @@ MergeSort::MergeSort() {
 
 void MergeSort::sort(int arr[], int size) {
     mergeSort(arr, 0, size - 1);
-
-    // Imprimir el array ordenado
-    for (int i = 0; i < size; i++) {
-        //std::cout << " " << arr[i];
-    }
-    std::cout << "\n";
 }
 
 void MergeSort::mergeSort(int arr[], int left, int right) {

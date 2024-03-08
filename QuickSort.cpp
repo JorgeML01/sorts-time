@@ -6,12 +6,6 @@ QuickSort::QuickSort() {
 
 void QuickSort::sort(int arr[], int size) {
     quickSort(arr, 0, size - 1);
-
-    // Imprimir el array ordenado
-    for (int i = 0; i < size; i++) {
-        //std::cout << " " << arr[i];
-    }
-    std::cout << "\n";
 }
 
 int QuickSort::partition(int arr[], int low, int high) {
